@@ -16,6 +16,11 @@ const showError = (input, message) => {
     // small.innerHTML = message
 }
 
+const showSuccess = (input) => {
+    const formControl = input.parentElement; //This will go to the direct parent of any given input tag
+    formControl.className = "form-control success" //Manipulate class name for special CSS effects
+}
+
 
 
 
