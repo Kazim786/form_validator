@@ -82,7 +82,7 @@ h2{
 
 /* .form-control.error small { /*When .form-control is dynamically changed to include error in its class name.
                              The small tag within this element will have its CSS Altered*/
-    visibility: visible;
+    /* visibility: visible; */
 /* } */ 
 
 /* .form button{
