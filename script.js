@@ -63,6 +63,15 @@ const checkLength = (input, min, max) => {
     }
 }
 
+//Password match
+
+const passwordValid = (password1, password2) => {
+    if(password2.value !== password1.value ){
+        showError(password2, "Passwords do not match")
+    } else {
+        showSuccess(password2)
+    }
+}
 
 //Event Listener
 form.addEventListener('submit', function(e){
@@ -71,6 +80,7 @@ form.addEventListener('submit', function(e){
     checkRequired([username, email, password, password2])
     checkLength(username, 3, 15)
     checkLength(password, 6, 20)
+    passwordValid(password, password2)
    //dont forget to get the value of an input u have to use the value property
 
  
