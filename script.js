@@ -35,45 +35,60 @@ const validEmail = (input) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(input).toLowerCase());
 }
+//Check required fields
+function checkRequired (inputArr){
+    inputArr.forEach(function (input){
+        if(input.value.trim() === ''){
+            showError(input, 'Cannot be Empty')
+        } 
+        else{
+            showSuccess(input)
+        }
+    })
+}
 
 //Event Listener
 form.addEventListener('submit', function(e){
     e.preventDefault();
     // console.log(username.value.length)
+    checkRequired([username, email, password, password2])
    
    //dont forget to get the value of an input u have to use the value property
-   if(username.value === ''){
-    showError(username, 'Username cannot be blank')
-   } else{
-       showSuccess(username)
-   }
 
-   if(email.value === ''){
-    showError(email, 'email cannot be blank')
-   } else if (!validEmail(email.value)) {
-       showError(email, 'Please enter a valid email value')
-   }
-   
-   else{
-       showSuccess(email)
-   }
-
-   if(password.value === ''){
-    showError(password, 'Password cannot be blank')
-
-   }
-   
-   else{
-       showSuccess(password)
-   }
-   if(password2.value === ''){
-    showError(password2, 'Password confirmation cannot be blank')
-   } else if(password.value !== password2.value ){
-       showError(password2, "Passwords do not match")
-   } 
-   else{
-       showSuccess(password2)
-   }
+ 
 })
 
+
+//Old code
+// if(username.value === ''){
+//     showError(username, 'Username cannot be blank')
+//    } else{
+//        showSuccess(username)
+//    }
+
+//    if(email.value === ''){
+//     showError(email, 'email cannot be blank')
+//    } else if (!validEmail(email.value)) {
+//        showError(email, 'Please enter a valid email value')
+//    }
+   
+//    else{
+//        showSuccess(email)
+//    }
+
+//    if(password.value === ''){
+//     showError(password, 'Password cannot be blank')
+//    }
+   
+//    else{
+//        showSuccess(password)
+//    }
+//    if(password2.value === ''){
+//     showError(password2, 'Password confirmation cannot be blank')
+//    } else if(password.value !== password2.value ){
+//        showError(password2, "Passwords do not match")
+//    } 
+//    else{
+//        showSuccess(password2)
+//    }
 
