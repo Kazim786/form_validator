@@ -21,6 +21,21 @@ const showSuccess = (input) => {
     formControl.className = "form-control success" //Manipulate class name for special CSS effects
 }
 
+//Username and Password length
+
+const validLength = (input) => {
+    if(input.value.length < 3){
+        showError(input, 'Length should be ')
+    }
+}
+
+//Valid email
+
+const validEmail = (input) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(input).toLowerCase());
+}
+
 //Event Listener
 form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -35,20 +50,27 @@ form.addEventListener('submit', function(e){
 
    if(email.value === ''){
     showError(email, 'email cannot be blank')
-   } else{
+   } else if (!validEmail(email.value)) {
+       showError(email, 'Please enter a valid email value')
+   }
+   
+   else{
        showSuccess(email)
    }
 
    if(password.value === ''){
     showError(password, 'Password cannot be blank')
-   } else{
+
+   }
+   
+   else{
        showSuccess(password)
    }
    if(password2.value === ''){
     showError(password, 'Password confirmation cannot be blank')
    } else if(password.value !== password2.value ){
        showError(password2, "Passwords do not match")
-   }
+   } 
    else{
        showSuccess(password2)
    }
