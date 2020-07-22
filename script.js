@@ -21,9 +21,6 @@ const showSuccess = (input) => {
     formControl.className = "form-control success" //Manipulate class name for special CSS effects
 }
 
-
-
-
 //Event Listener
 form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -34,6 +31,26 @@ form.addEventListener('submit', function(e){
     showError(username, 'Username cannot be blank')
    } else{
        showSuccess(username)
+   }
+
+   if(email.value === ''){
+    showError(email, 'email cannot be blank')
+   } else{
+       showSuccess(email)
+   }
+
+   if(password.value === ''){
+    showError(password, 'Password cannot be blank')
+   } else{
+       showSuccess(password)
+   }
+   if(password2.value === ''){
+    showError(password, 'Password confirmation cannot be blank')
+   } else if(password.value !== password2.value ){
+       showError(password2, "Passwords do not match")
+   }
+   else{
+       showSuccess(password2)
    }
 })
 
