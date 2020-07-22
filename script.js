@@ -67,7 +67,7 @@ form.addEventListener('submit', function(e){
        showSuccess(password)
    }
    if(password2.value === ''){
-    showError(password, 'Password confirmation cannot be blank')
+    showError(password2, 'Password confirmation cannot be blank')
    } else if(password.value !== password2.value ){
        showError(password2, "Passwords do not match")
    } 
