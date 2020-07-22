@@ -39,13 +39,20 @@ const validEmail = (input) => {
 function checkRequired (inputArr){
     inputArr.forEach(function (input){
         if(input.value.trim() === ''){
-            showError(input, 'Cannot be Empty')
+            showError(input, `${getFieldName(input)} Cannot be Empty`)
         } 
         else{
             showSuccess(input)
         }
     })
 }
+
+//get field name and uppercase the first letter
+//string manipulation
+const getFieldName = (input) => {
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1)
+}
+
 
 //Event Listener
 form.addEventListener('submit', function(e){
