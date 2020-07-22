@@ -53,13 +53,24 @@ const getFieldName = (input) => {
     return input.id.charAt(0).toUpperCase() + input.id.slice(1)
 }
 
+const checkLength = (input, min, max) => {
+    if(input.value.length < min){
+        showError(`${input.id} should be minimum of ${min}`)
+    } else if(input.value.length > max){
+        showError(`${input.id} should be less than ${max}`)
+    } else{
+        showSuccess(input)
+    }
+}
+
 
 //Event Listener
 form.addEventListener('submit', function(e){
     e.preventDefault();
     // console.log(username.value.length)
     checkRequired([username, email, password, password2])
-   
+    checkLength(username, 3, 15)
+    checkLength(password, 6, 20)
    //dont forget to get the value of an input u have to use the value property
 
  
