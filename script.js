@@ -89,6 +89,7 @@ form.addEventListener('submit', function(e){
     checkLength(username, 3, 15)
     checkLength(password, 6, 20)
     passwordValid(password, password2)
+    validEmail(email)
    //dont forget to get the value of an input u have to use the value property
 
  
