@@ -55,9 +55,9 @@ const getFieldName = (input) => {
 
 const checkLength = (input, min, max) => {
     if(input.value.length < min){
-        showError(`${input.id} should be minimum of ${min}`)
+        showError(input, `${getFieldName(input)} should be minimum of ${min}`)
     } else if(input.value.length > max){
-        showError(`${input.id} should be less than ${max}`)
+        showError(input, `${getFieldName(input)} should be less than ${max}`)
     } else{
         showSuccess(input)
     }
